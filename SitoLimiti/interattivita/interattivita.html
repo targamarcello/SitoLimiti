@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interattività - Limiti</title>
+    <link rel="stylesheet" href="../home/style.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz sui Limiti</h1>
+        <nav>
+            <ul>
+                <li><a href="../home/style.css">Home</a></li>
+                <li><a href="../teoria/teoria.html">Teoria e Definizioni</a></li>
+                <li><a href="../esercizi/esercizi.html">Esercizi e Applicazioni</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="quiz">
+            <h2 id="quizQuestion"></h2>
+            <input type="text" id="quizAnswer" placeholder="Inserisci la risposta">
+            <button onclick="submitAnswer()">Invia Risultato</button>
+        </section>
+
+        <section id="results" style="display: none;">
+            <h2>Risultati del Quiz</h2>
+            <p id="quizResults"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Limiti in Matematica</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
