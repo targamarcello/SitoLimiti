@@ -9,8 +9,8 @@
 html, body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    background-color: #f4f7f6; /* Colore più neutro per lo sfondo */
+    color: #2c3e50; /* Colore scuro per il testo principale */
 }
 
 body {
@@ -21,9 +21,10 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(45deg, #f39c12, #e67e22); /* Gradiente di colore */
+    background: linear-gradient(45deg, #34495e, #1abc9c); /* Colori blu-grigio e verde per un effetto fresco e professionale */
     color: #fff;
     padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Aggiunta ombra per un effetto di profondità */
 }
 
 .header-container {
@@ -38,7 +39,7 @@ header {
 header h1 {
     font-size: 2rem;
     letter-spacing: 2px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Ombra per migliorare la visibilità */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* Ombra per migliorare la visibilità */
 }
 
 nav ul {
@@ -54,11 +55,13 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    transition: color 0.3s ease;
+    font-size: 1.1rem; /* Aumentata la dimensione per una maggiore leggibilità */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #f39c12;
+    color: #1abc9c; /* Verde chiaro per il hover */
+    transform: scale(1.05); /* Aggiunta una leggera animazione di ingrandimento */
 }
 
 /* Sezioni generali */
@@ -68,6 +71,7 @@ section {
     background-color: #fff;
     opacity: 0;
     animation: fadeIn 1s forwards;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05); /* Aggiunta ombra per un effetto di profondità */
 }
 
 .section-content {
@@ -77,8 +81,8 @@ section {
 }
 
 h2 {
-    font-size: 2rem;
-    color: #333;
+    font-size: 2.2rem; /* Aumentata la dimensione del titolo */
+    color: #34495e; /* Colore più scuro per il titolo */
     margin-bottom: 20px;
     animation: textSlide 1s ease-out;
 }
@@ -87,35 +91,39 @@ p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 20px;
+    color: #7f8c8d; /* Colore più morbido per il testo */
 }
 
 /* Bottone principale */
 .btn-main {
-    background-color: #f39c12;
+    background-color: #1abc9c; /* Verde acqua per il pulsante principale */
     color: white;
     padding: 12px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px; /* Bordo più arrotondato */
     font-size: 1rem;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Aggiunta transizione per l'effetto hover */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombra per dare profondità al bottone */
 }
 
 .btn-main:hover {
-    background-color: #e67e22;
-    transform: scale(1.1);
+    background-color: #16a085; /* Colore più scuro per l'hover */
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Aggiunta ombra più accentuata all'hover */
 }
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #2c3e50; /* Blu scuro per il footer */
     color: white;
     text-align: center;
     padding: 30px;
     font-size: 0.9rem;
     margin-top: auto;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Ombra per separare dal contenuto */
 }
 
 /* Stile form */
@@ -125,14 +133,19 @@ form {
     align-items: center;
     max-width: 500px;
     margin: 0 auto;
+    background-color: #ecf0f1; /* Colore chiaro per il form */
+    padding: 20px;
+    border-radius: 10px; /* Aggiunto bordo arrotondato */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 form input, form textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
-    border: 2px solid #ccc;
+    border: 2px solid #bdc3c7; /* Colore del bordo grigio chiaro */
     border-radius: 5px;
+    font-size: 1rem;
 }
 
 form textarea {
@@ -141,19 +154,21 @@ form textarea {
 }
 
 form button {
-    background-color: #f39c12;
+    background-color: #1abc9c; /* Verde acqua per il pulsante del form */
     color: white;
     padding: 12px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 form button:hover {
-    background-color: #e67e22;
+    background-color: #16a085; /* Colore più scuro per l'hover */
     transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Animazioni */
