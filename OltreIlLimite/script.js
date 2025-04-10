@@ -5,7 +5,7 @@ buttons.forEach(button => {
     button.addEventListener('mouseenter', () => {
         button.style.transform = 'scale(1.1)';
     });
-    
+
     button.addEventListener('mouseleave', () => {
         button.style.transform = 'scale(1)';
     });
@@ -14,28 +14,24 @@ buttons.forEach(button => {
 // Scroll animato per il link del menu
 document.querySelectorAll('nav a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        // Verifica se il link è un'ancora interna (es. #sezione)
         if (this.getAttribute('href').startsWith('#')) {
-            e.preventDefault();  // Blocca il comportamento di navigazione
+            e.preventDefault();
 
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
 
-            // Fai lo scroll alla sezione
             window.scrollTo({
-                top: targetElement.offsetTop - 70, // Per evitare che il menu copra il contenuto
+                top: targetElement.offsetTop - 70,
                 behavior: 'smooth'
             });
-        } else {
-            // Non fare nulla, lascia che il link navighi normalmente
         }
     });
 });
 
-// Effetto di fade-in per gli elementi quando entrano nella vista
+// Effetto fade-in con IntersectionObserver
 const elements = document.querySelectorAll('.section-content');
 
-const observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-visible');
@@ -46,3 +42,40 @@ const observer = new IntersectionObserver((entries, observer) => {
 elements.forEach(element => {
     observer.observe(element);
 });
+
+// -----------------------------
+// GLOSSARIO: ricerca e toggle
+// -----------------------------
+const searchInput = document.getElementById('searchInput');
+const termini = document.querySelectorAll('.termine-box');
+
+termini.forEach(termine => {
+    termine.addEventListener('click', () => {
+        const definizione = termine.nextElementSibling;
+
+        if (definizione.style.display === 'block') {
+            definizione.style.display = 'none';
+        } else {
+            definizione.style.display = 'block';
+        }
+    });
+});
+
+if (searchInput) {
+    searchInput.addEventListener('input', () => {
+        const filtro = searchInput.value.toLowerCase();
+
+        termini.forEach(termine => {
+            const testo = termine.textContent.toLowerCase();
+            const definizione = termine.nextElementSibling;
+
+            if (testo.includes(filtro)) {
+                termine.style.display = 'block';
+                definizione.style.display = 'none';
+            } else {
+                termine.style.display = 'none';
+                definizione.style.display = 'none';
+            }
+        });
+    });
+}

@@ -171,6 +171,48 @@ form button:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Glossario */
+
+.glossario-box {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.glossario-search {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #bdc3c7;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+.termine-box {
+    background-color: #ecf0f1;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    padding: 15px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.termine-box:hover {
+    background-color: #dce3e6;
+}
+
+.definizione-box {
+    display: none;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-left: 4px solid #1abc9c;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    border-radius: 0 0 12px 12px;
+    animation: fadeIn 0.4s ease-out;
+}
+
 /* Animazioni */
 @keyframes fadeIn {
     from {
