@@ -43,9 +43,7 @@ elements.forEach(element => {
     observer.observe(element);
 });
 
-// -----------------------------
-// GLOSSARIO: ricerca e toggle
-// -----------------------------
+//Glossario con searchBar
 const searchInput = document.getElementById('searchInput');
 const termini = document.querySelectorAll('.termine-box');
 
