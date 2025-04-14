@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
         <div class="header-container">
             <h1>VAI OLTRE IL LIMITE</h1>
@@ -27,15 +28,33 @@
     <section>
         <div class="section-content">
             <h2>Risorse Utili</h2>
-                <a href="https://www.youtube.com" target="_blank">Video tutorial sui limiti</a> <br>
-                <a href="https://www.amazon.it" target="_blank">Libri sul calcolo dei limiti</a> <br>
-                <a href="glossario.html">Glossario dei termini matematici</a> <br> <br>
+
+            <div class="resources-list">
+                <a href="javascript:void(0);" class="open-video-modal">Podcast sui limiti</a>
+                <a href="https://www.amazon.it/Colori-matematica-verde-superiori-espansione/dp/8849422989/ref=pd_ci_mcx_mh_mcx_views_0_image?pd_rd_w=Y9tmH&content-id=amzn1.sym.57a351cf-ba07-47e8-b302-aa2aa1a3f209%3Aamzn1.symc.ca948091-a64d-450e-86d7-c161ca33337b&pf_rd_p=57a351cf-ba07-47e8-b302-aa2aa1a3f209&pf_rd_r=N3F0FX4ZV3TNWKM2Q0CF&pd_rd_wg=U3nSj&pd_rd_r=90ad7813-b67d-46bc-89ff-c5d791320e73&pd_rd_i=8849422989" target="_blank">Libri sul calcolo dei limiti</a>
+                <a href="glossario.html">Glossario dei termini matematici</a>
+            </div>
+
+            <br><br>
             <a href="contatti.html" class="btn-main">Contattaci per altre risorse</a>
         </div>
     </section>
 
+    <!-- Modal per il video -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <span class="close-modal">&times;</span>
+            <video class="video-player" controls>
+                <source src="extra/PodcastLimiti.mp4" type="video/mp4">
+                Il tuo browser non supporta il formato video.
+            </video>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2025 Vai Oltre il Limite | Tutti i diritti riservati</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

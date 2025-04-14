@@ -77,3 +77,25 @@ if (searchInput) {
         });
     });
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const videoModal = document.getElementById('videoModal');
+    const openVideoBtn = document.querySelector('.open-video-modal');
+    const closeModalBtn = document.querySelector('.close-modal');
+
+    // Apri il modal
+    openVideoBtn.addEventListener('click', function () {
+        videoModal.style.display = 'flex';
+    });
+
+    // Chiudi il modal
+    closeModalBtn.addEventListener('click', function () {
+        videoModal.style.display = 'none';
+    });
+
+    // Chiudi il modal se clicchi fuori dal video
+    window.addEventListener('click', function (event) {
+        if (event.target === videoModal) {
+            videoModal.style.display = 'none';
+        }
+    });
+});

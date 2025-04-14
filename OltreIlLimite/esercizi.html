@@ -11,7 +11,7 @@
         <div class="header-container">
             <h1>VAI OLTRE IL LIMITE</h1>
             <nav>
-                <ul>
+                <ul id="menu" class="hidden">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="teoria.html">Teoria</a></li>
                     <li><a href="tecniche.html">Tecniche di Calcolo</a></li>
@@ -21,17 +21,46 @@
                     <li><a href="contatti.html">Contatti</a></li>
                 </ul>
             </nav>
-            
         </div>
     </header>
 
     <section>
         <div class="section-content">
             <h2>Esercizi Pratici sui Limiti</h2>
-            <p>Per aiutarti a capire meglio come calcolare i limiti, proponiamo una serie di esercizi pratici:</p>
-                Calcolare il limite di f(x) = (x² - 4) / (x - 2) per x → 2 <br>
-                Determinare il limite di g(x) = e^x / x per x → ∞ <br>
-                Calcolare il limite di h(x) = sin(x) / x per x → 0 <br> <br>
+            <p>Per aiutarti a capire meglio come calcolare i limiti, proponiamo una serie di esercizi pratici divisi per difficoltà:</p>
+
+            <div class="esercizi-container">
+                <h3>Esercizi Base</h3>
+                <ul>
+                    <li><strong>1. Calcolare il limite di:</strong> <code>f(x) = (x² - 4) / (x - 2)</code> per <code>x → 2</code></li>
+                    <p>Indica se puoi semplificare la funzione e applicare direttamente il limite o se è necessaria un'altra tecnica.</p>
+
+                    <li><strong>2. Determinare il limite di:</strong> <code>g(x) = e^x / x</code> per <code>x → ∞</code></li>
+                    <p>Usa il comportamento asintotico per determinare il limite all'infinito.</p>
+
+                    <li><strong>3. Calcolare il limite di:</strong> <code>h(x) = sin(x) / x</code> per <code>x → 0</code></li>
+                    <p>Un classico limite noto che può essere calcolato usando tecniche di analisi.</p>
+                </ul>
+
+                <h3>Esercizi Intermedi</h3>
+                <ul>
+                    <li><strong>4. Calcolare il limite di:</strong> <code>f(x) = (x³ - 8) / (x - 2)</code> per <code>x → 2</code></li>
+                    <p>Applica il teorema di L'Hopital se necessario o prova a fattorizzare.</p>
+
+                    <li><strong>5. Calcolare il limite di:</strong> <code>g(x) = (x² - 1) / (x - 1)</code> per <code>x → 1</code></li>
+                    <p>Verifica se il limite si può calcolare con la sostituzione diretta o se c'è bisogno di semplificare.</p>
+                </ul>
+
+                <h3>Esercizi Avanzati</h3>
+                <ul>
+                    <li><strong>6. Calcolare il limite di:</strong> <code>f(x) = (x^3 + 3x² - x - 3) / (x² - 1)</code> per <code>x → 1</code></li>
+                    <p>Questo esercizio richiede l'uso di tecniche avanzate come la divisione polinomiale o il teorema di L'Hopital.</p>
+
+                    <li><strong>7. Calcolare il limite di:</strong> <code>g(x) = (x² - 2x + 1) / (x - 1)</code> per <code>x → 1</code></li>
+                    <p>Questo esercizio esplora i limiti con forme indeterminate e richiede una buona comprensione delle tecniche di calcolo.</p>
+                </ul>
+            </div>
+
             <!-- Link per scaricare il PDF direttamente -->
             <a href="extra/ESERCIZI_SUI_LIMITI.pdf" class="btn-main" download>Scarica PDF con Esercizi Aggiuntivi</a>
         </div>
@@ -40,7 +69,6 @@
     <footer>
         <p>&copy; 2025 Vai Oltre il Limite | Tutti i diritti riservati</p>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
