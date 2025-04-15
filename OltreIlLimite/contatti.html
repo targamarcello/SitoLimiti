@@ -27,19 +27,19 @@
 
   <!-- Sezione Contatti -->
   <section class="contact-section">
-    <div class="section-content">
-      <h2>Contattaci</h2>
-      <form action="#" method="POST">
-        <label for="name">Nome</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Messaggio</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit" class="btn-main">Invia</button>
+    <div>
+      <form action="/action_page.php">
+        <label for="fname">Nome</label>
+        <input type="text" id="fname" name="firstname" placeholder="Inserisci il tuo nome..">
+    
+        <label for="lname">Cognome</label>
+        <input type="text" id="lname" name="lastname" placeholder="Inserisci il tuo cognome..">
+    
+        <label for="message">Messaggio per i Developer</label>
+        <br>
+        <textarea id="message" name="message" rows="5" placeholder="Hai qualche messaggio per noi? Scrivicelo!"></textarea>
+      
+        <a class="btn-main">Submit</a>
       </form>
     </div>
   </section>
@@ -54,38 +54,38 @@
       <div class="team-grid">
 
         <div class="team-card">
-          <img src="extra/prearo.jpg" alt="EnricoPrearo">
+          <img src="extra/prearo.jpeg" alt="EnricoPrearo">
           <h3>Enrico Prearo</h3>
-          <p class="role">Coordinatrice Didattica</p>
-          <p class="bio">Appassionata di matematica e divulgazione, cura i contenuti teorici del sito.</p>
+          <p class="role">Web Designer</p>
+          <p class="bio">Progettato la struttura visuale del sito e fornisce i contenuti teorici da utilizzare nel sito.</p>
         </div>
 
         <div class="team-card">
           <img src="extra/copertina rumena.png" alt="FabioCucu">
           <h3>Fabio Cucu</h3>
-          <p class="role">Sviluppatore Front-End</p>
-          <p class="bio">Responsabile dell’interfaccia utente e dell’accessibilità del sito.</p>
+          <p class="role">User Tester</p>
+          <p class="bio">Simula l'esperienza user per individuare eventuali errori/discordanze presenti nel sito.</p>
         </div>
 
         <div class="team-card">
           <img src="extra/ioLirico.png" alt="TargaMarcello">
           <h3>Targa Marcello</h3>
-          <p class="role">Content Creator</p>
-          <p class="bio">Cura esercizi e materiali interattivi per studenti e docenti.</p>
+          <p class="role">Web Developer</p>
+          <p class="bio">Occupato della implementazione e scrittura del sito web permettendo l'accessibitlita' senza eventuali problemi.</p>
         </div>
 
         <div class="team-card">
           <img src="extra/secc.jpg" alt="EdoardoSecchiero">
           <h3>Edoardo Secchiero</h3>
-          <p class="role">Responsabile UX</p>
-          <p class="bio">Progetta l’esperienza utente per rendere il sito intuitivo e coinvolgente.</p>
+          <p class="role">Head of Cross-Cutting Topics</p>
+          <p class="bio">Ricerca e fornisce le risorse sugli utilizzi trasversali (educazione civica) degli argomenti trattati.</p>
         </div>
 
         <div class="team-card">
           <img src="extra/tommy.jpg" alt="TommyCiccio">
           <h3>Tommy Ciccio</h3>
-          <p class="role">Editor dei Contenuti</p>
-          <p class="bio">Revisione dei testi e supervisione della qualità dei materiali pubblicati.</p>
+          <p class="role">Resources Manager</p>
+          <p class="bio">Ricercato e fornito le risorse aggiuntive (libri, video, podcast, ecc) necessarie.</p>
         </div>
 
       </div>
