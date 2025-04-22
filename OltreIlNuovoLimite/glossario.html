@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vai Oltre il Limite - Glossario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>VAI OLTRE IL LIMITE</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="definizione.html">Definizione</a></li>
+                    <li><a href="esercizi.html">Esercizi</a></li>
+                    <li><a href="teoremi.html">Teoremi</a></li>
+                    <li><a href="approfondimenti.html">Approfondimenti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-title">
+        <div class="container">
+            <h1>Glossario dei Termini Matematici</h1>
+            <p>I concetti chiave per comprendere i limiti</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="theorem-section">
+                <h2>Termini e Definizioni</h2>
+                <p>Questa sezione raccoglie i termini fondamentali per comprendere la teoria dei limiti. Utilizza il campo di ricerca per trovare rapidamente il concetto che ti interessa.</p>
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Cerca un termine..." class="search-input">
+                </div>
+
+                <div id="glossarioContainer" class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">Asintoto</div>
+                        <div class="accordion-content">
+                            <p>Una retta a cui la funzione si avvicina sempre di più, ma non la tocca mai, quando la variabile indipendente tende a infinito o a un punto critico.</p>
+                            <div class="example">
+                                <h4>Esempio</h4>
+                                <p>La funzione f(x) = 1/x ha come asintoto verticale l'asse y (x = 0) e come asintoto orizzontale l'asse x (y = 0).</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">Continuità</div>
+                        <div class="accordion-content">
+                            <p>Una funzione è continua in un punto se il limite per x che tende a quel punto coincide con il valore della funzione nel punto stesso.</p>
+                            <div class="math-block">
+                                lim(x→x₀) f(x) = f(x₀)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">Indeterminazione</div>
+                        <div class="accordion-content">
+                            <p>Situazione in cui non è possibile determinare direttamente il valore di un'espressione, come 0/0 o ∞/∞, e serve calcolare il limite.</p>
+                            <div class="note">
+                                <h4>Nota</h4>
+                                <p>Le forme di indeterminazione più comuni sono: 0/0, ∞/∞, 0·∞, ∞-∞, 0⁰, ∞⁰, 1^∞</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">Limite</div>
+                        <div class="accordion-content">
+                            <p>Concetto fondamentale dell'analisi matematica che descrive il comportamento di una funzione al tendere della variabile indipendente a un certo valore.</p>
+                            <div class="math-block">
+                                lim(x→x₀) f(x) = L
+                            </div>
+                            <p>Intuitivamente, significa che possiamo rendere f(x) arbitrariamente vicino a L prendendo x sufficientemente vicino a x₀.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <a href="risorse.html" class="nav-button">Torna alle Risorse</a>
+                    <a href="definizione.html" class="nav-button">Vai alla Definizione di Limite</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Oltre il Limite - Un progetto didattico per l'apprendimento dei limiti</p>
+            <p>Creato da Marcello Targa</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

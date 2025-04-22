@@ -3,265 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oltre il Limite - Approfondimenti</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --bg-color: #f9f9f9;
-            --card-bg: #fff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            background-color: var(--secondary-color);
-            padding: 0.5rem 0;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
-        
-        nav ul li {
-            margin: 0 15px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 3rem 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .main-content {
-            padding: 3rem 0;
-        }
-        
-        .accordion {
-            margin-bottom: 20px;
-        }
-        
-        .accordion-item {
-            margin-bottom: 10px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .accordion-header {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 15px 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-        
-        .accordion-header:hover {
-            background-color: #2980b9;
-        }
-        
-        .accordion-header::after {
-            content: '+';
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .accordion-item.active .accordion-header::after {
-            content: '-';
-        }
-        
-        .accordion-content {
-            background-color: var(--card-bg);
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-        }
-        
-        .accordion-item.active .accordion-content {
-            padding: 20px;
-            max-height: 1000px;
-        }
-        
-        .math-formula {
-            font-family: 'Times New Roman', Times, serif;
-            font-style: italic;
-            margin: 10px 0;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        .cta-section {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .cta-section h2 {
-            margin-bottom: 1rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: white;
-            color: var(--accent-color);
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        
-        .cta-button:hover {
-            background-color: #f8f8f8;
-            transform: scale(1.05);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        
-        .resource-links {
-            margin-top: 30px;
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .resource-links h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-        }
-        
-        .resource-links ul {
-            list-style-type: none;
-        }
-        
-        .resource-links ul li {
-            margin-bottom: 10px;
-        }
-        
-        .resource-links ul li a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .resource-links ul li a:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav ul li {
-                margin: 5px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-        
-        /* Script per l'accordion */
-        script {
-            display: none;
-        }
-    </style>
+    <title>Vai Oltre il Limite - Approfondimenti</title>
+    <link href="style.css" rel="stylesheet"> 
 </head>
 <body>
     <header>
@@ -278,6 +21,7 @@
                 <li><a href="definizione.html">Definizione</a></li>
                 <li><a href="esercizi.html">Esercizi</a></li>
                 <li><a href="teoremi.html">Teoremi</a></li>
+                <li><a href="approfondimenti.html">Approfondimenti</a></li>
             </ul>
         </div>
     </nav>
@@ -298,10 +42,10 @@
                 <div class="accordion-item">
                     <div class="accordion-header">Qual è la differenza tra limite destro e limite sinistro?</div>
                     <div class="accordion-content">
-                        <p>Il limite destro (indicato con x→c+) rappresenta il valore a cui tende la funzione quando x si avvicina a c da destra, cioè attraverso valori maggiori di c. Il limite sinistro (indicato con x→c-) rappresenta invece il valore a cui tende la funzione quando x si avvicina a c da sinistra, cioè attraverso valori minori di c.</p>
+                        <p>Il limite destro (indicato con x→x<sub>0</sub>+) rappresenta il valore a cui tende la funzione quando x si avvicina a c da destra, cioè attraverso valori maggiori di c. Il limite sinistro (indicato con x→x<sub>0</sub>-) rappresenta invece il valore a cui tende la funzione quando x si avvicina a c da sinistra, cioè attraverso valori minori di c.</p>
                         <div class="math-formula">
-                            lim<sub>x→c+</sub> f(x) = limite destro<br>
-                            lim<sub>x→c-</sub> f(x) = limite sinistro
+                            lim<sub>x→x<sub>0</sub>+</sub> f(x) = limite destro<br>
+                            lim<sub>x→x<sub>0</sub>-</sub> f(x) = limite sinistro
                         </div>
                         <p>Un limite esiste se e solo se il limite destro e il limite sinistro esistono e sono uguali.</p>
                     </div>
@@ -361,37 +105,10 @@
                     <div class="accordion-content">
                         <p>Il Teorema di De L'Hôpital è uno strumento potente per risolvere forme indeterminate del tipo 0/0 o ∞/∞. Il teorema afferma che, sotto certe condizioni, il limite del rapporto di due funzioni è uguale al limite del rapporto delle loro derivate.</p>
                         <div class="math-formula">
-                            Se lim<sub>x→c</sub> f(x) = lim<sub>x→c</sub> g(x) = 0 oppure ∞<br>
-                            Allora lim<sub>x→c</sub> [f(x)/g(x)] = lim<sub>x→c</sub> [f'(x)/g'(x)]
+                            Se lim<sub>x→x<sub>0</sub></sub> f(x) = lim<sub>x→x<sub>0</sub></sub> g(x) = 0 oppure ∞<br>
+                            Allora lim<sub>x→x<sub>0</sub></sub> [f(x)/g(x)] = lim<sub>x→x<sub>0</sub></sub> [f'(x)/g'(x)]
                         </div>
                         <p>Questo teorema può essere applicato più volte se necessario, fino a quando si ottiene una forma determinata.</p>
-                    </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <div class="accordion-header">Come si studiano i limiti di successioni?</div>
-                    <div class="accordion-content">
-                        <p>I limiti di successioni seguono regole simili a quelle dei limiti di funzioni, ma si considerano solo valori discreti (interi). Per studiare il limite di una successione a<sub>n</sub> si può:</p>
-                        <ol>
-                            <li>Applicare i teoremi sui limiti come per le funzioni</li>
-                            <li>Studiare il comportamento per n molto grande, analizzando il termine dominante</li>
-                            <li>Per successioni ricorsive, cercare di individuare il limite risolvendo un'equazione</li>
-                            <li>Utilizzare il criterio del rapporto o della radice per studiare la convergenza</li>
-                        </ol>
-                        <p>Una successione converge se esiste un numero reale L tale che i termini della successione si avvicinano sempre più a L al crescere di n.</p>
-                    </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <div class="accordion-header">Qual è la connessione tra limiti e continuità?</div>
-                    <div class="accordion-content">
-                        <p>La continuità di una funzione in un punto è strettamente legata al concetto di limite. Una funzione f(x) è continua in un punto c se:</p>
-                        <ol>
-                            <li>f(c) è definita (cioè c appartiene al dominio di f)</li>
-                            <li>esiste lim<sub>x→c</sub> f(x)</li>
-                            <li>lim<sub>x→c</sub> f(x) = f(c)</li>
-                        </ol>
-                        <p>In altre parole, una funzione è continua in un punto se il suo limite in quel punto coincide con il valore della funzione in quel punto. Le funzioni continue possiedono importanti proprietà, come il teorema degli zeri e il teorema dei valori intermedi.</p>
                     </div>
                 </div>
                 
@@ -399,7 +116,7 @@
                     <div class="accordion-header">Come si definisce formalmente un limite?</div>
                     <div class="accordion-content">
                         <p>La definizione formale di limite, nota come definizione ε-δ (epsilon-delta), è la seguente:</p>
-                        <p>Si dice che una funzione f(x) ha per limite L quando x tende a c (e si scrive lim<sub>x→c</sub> f(x) = L) se per ogni numero reale positivo ε (epsilon) esiste un numero reale positivo δ (delta) tale che per ogni x nell'insieme di definizione di f, se 0 < |x - c| < δ, allora |f(x) - L| < ε.</p>
+                        <p>Si dice che una funzione f(x) ha per limite L quando x tende a c (e si scrive lim<sub>x→x<sub>0</sub></sub> f(x) = L) se per ogni numero reale positivo ε (epsilon) esiste un numero reale positivo δ (delta) tale che per ogni x nell'insieme di definizione di f, se 0 < |x - c| < δ, allora |f(x) - L| < ε.</p>
                         <div class="math-formula">
                             ∀ε > 0, ∃δ > 0 : ∀x, 0 < |x - c| < δ ⟹ |f(x) - L| < ε
                         </div>
@@ -452,34 +169,15 @@
                         <p>Questi limiti sono fondamentali per risolvere molti problemi più complessi e sono alla base del calcolo differenziale.</p>
                     </div>
                 </div>
-                
-                <div class="accordion-item">
-                    <div class="accordion-header">Come si utilizzano i limiti per studiare gli asintoti?</div>
-                    <div class="accordion-content">
-                        <p>Gli asintoti sono rette a cui il grafico di una funzione si avvicina indefinitamente. Esistono tre tipi di asintoti:</p>
-                        <ol>
-                            <li><strong>Asintoto verticale:</strong> La retta x = a è un asintoto verticale se almeno uno dei seguenti limiti è infinito: lim<sub>x→a+</sub> f(x) o lim<sub>x→a-</sub> f(x)</li>
-                            <li><strong>Asintoto orizzontale:</strong> La retta y = b è un asintoto orizzontale se lim<sub>x→∞</sub> f(x) = b o lim<sub>x→-∞</sub> f(x) = b</li>
-                            <li><strong>Asintoto obliquo:</strong> La retta y = mx + q è un asintoto obliquo se:
-                                <ul>
-                                    <li>m = lim<sub>x→∞</sub> f(x)/x (deve essere finito e diverso da 0)</li>
-                                    <li>q = lim<sub>x→∞</sub> [f(x) - mx]</li>
-                                </ul>
-                            </li>
-                        </ol>
-                        <p>Lo studio degli asintoti fornisce importanti informazioni sul comportamento della funzione "all'infinito" e in prossimità di punti singolari.</p>
-                    </div>
-                </div>
             </div>
             
             <div class="resource-links">
                 <h3>Risorse Aggiuntive</h3>
                 <p>Per approfondire ulteriormente la tua comprensione dei limiti, consulta queste risorse selezionate:</p>
                 <ul>
-                    <li><a href="libri.html">Bibliografia consigliata</a> - Una selezione di testi per tutti i livelli</li>
-                    <li><a href="video.html">Videolezioni</a> - Spiegazioni visive dei concetti più complessi</li>
-                    <li><a href="software.html">Software di calcolo</a> - Strumenti per verificare i tuoi risultati</li>
-                    <li><a href="faq-complete.html">FAQ complete</a> - L'elenco completo delle domande frequenti</li>
+                    <li><a href="podcast.html">Podcast</a> - Podcast preparato da noi stessi pronto per il vostro ascolto</li>
+                    <li><a href="https://www.amazon.it/Colori-matematica-verde-superiori-espansione/dp/8849422989/ref=pd_ci_mcx_mh_mcx_views_0_image?pd_rd_w=Y9tmH&content-id=amzn1.sym.57a351cf-ba07-47e8-b302-aa2aa1a3f209%3Aamzn1.symc.ca948091-a64d-450e-86d7-c161ca33337b&pf_rd_p=57a351cf-ba07-47e8-b302-aa2aa1a3f209&pf_rd_r=N3F0FX4ZV3TNWKM2Q0CF&pd_rd_wg=U3nSj&pd_rd_r=90ad7813-b67d-46bc-89ff-c5d791320e73&pd_rd_i=8849422989" target="_blank" id="risorse">Libri sul calcolo dei limiti</a> - Libro sui limiti consigliato dal team di sviluppo</li>
+                    <li><a href="glossario.html">Glossario dei termini</a> - Elenco di termini di frequente uso nell'ambito dei limiti</li>
                 </ul>
             </div>
         </div>
@@ -499,18 +197,7 @@
             <p>Creato da Marcello Targa</p>
         </div>
     </footer>
-    
-    <script>
-        // Script per il funzionamento dell'accordion
-        document.addEventListener('DOMContentLoaded', function() {
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
-            
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    this.parentElement.classList.toggle('active');
-                });
-            });
-        });
-    </script>
+
+    <script src="script.js"></script>
 </body>
 </html>

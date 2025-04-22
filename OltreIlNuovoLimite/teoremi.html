@@ -3,234 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teoremi sui Limiti - Oltre il Limite</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --bg-color: #f9f9f9;
-            --card-bg: #fff;
-            --light-gray: #eaeaea;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            background-color: var(--secondary-color);
-            padding: 0.5rem 0;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
-        
-        nav ul li {
-            margin: 0 15px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
-        
-        .page-title {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .page-title h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .main-content {
-            padding: 2rem 0;
-        }
-        
-        .theorem-section {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            padding: 25px;
-            margin-bottom: 2rem;
-        }
-        
-        .theorem-section h2 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-        }
-        
-        .theorem-card {
-            background-color: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--secondary-color);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .theorem-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-        
-        .math-block {
-            background-color: var(--light-gray);
-            border-left: 4px solid var(--accent-color);
-            padding: 15px;
-            margin: 20px 0;
-            font-family: 'Times New Roman', Times, serif;
-            font-style: italic;
-            text-align: center;
-            font-size: 1.2rem;
-            overflow-x: auto;
-        }
-        
-        .example {
-            background-color: rgba(46, 204, 113, 0.1);
-            border-radius: 6px;
-            padding: 15px;
-            margin: 20px 0;
-            border-left: 4px solid #2ecc71;
-        }
-        
-        .example h4 {
-            color: #27ae60;
-            margin-bottom: 10px;
-        }
-        
-        .note {
-            background-color: rgba(241, 196, 15, 0.1);
-            border-radius: 6px;
-            padding: 15px;
-            margin: 20px 0;
-            border-left: 4px solid #f1c40f;
-        }
-        
-        .note h4 {
-            color: #f39c12;
-            margin-bottom: 10px;
-        }
-        
-        .navigation-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin: 2rem 0;
-        }
-        
-        .nav-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .nav-button:hover {
-            background-color: #2980b9;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        .table-of-contents {
-            background-color: var(--light-gray);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 2rem;
-        }
-        
-        .table-of-contents h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-        
-        .table-of-contents ul {
-            list-style-type: none;
-        }
-        
-        .table-of-contents ul li {
-            margin-bottom: 8px;
-        }
-        
-        .table-of-contents a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .table-of-contents a:hover {
-            color: var(--secondary-color);
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav ul li {
-                margin: 5px 0;
-            }
-            
-            .page-title h1 {
-                font-size: 2rem;
-            }
-            
-            .navigation-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+    <title>Vai Oltre il Limite - Teoremi sui Limiti</title>
+    <link href="style.css" rel="stylesheet"> 
 </head>
 <body>
     <header>
@@ -279,39 +53,39 @@
                 
                 <div class="theorem-card">
                     <h3>Teorema della somma</h3>
-                    <p>Se esistono lim<sub>x→c</sub> f(x) = L e lim<sub>x→c</sub> g(x) = M, allora:</p>
+                    <p>Se esistono lim<sub>x→x<sub>0</sub></sub> f(x) = L e lim<sub>x→x<sub>0</sub></sub> g(x) = M, allora:</p>
                     <div class="math-block">
-                        lim<sub>x→c</sub> [f(x) + g(x)] = lim<sub>x→c</sub> f(x) + lim<sub>x→c</sub> g(x) = L + M
+                        lim<sub>x→x<sub>0</sub></sub> [f(x) + g(x)] = lim<sub>x→x<sub>0</sub></sub> f(x) + lim<sub>x→x<sub>0</sub></sub> g(x) = L + M
                     </div>
                     <p>Questo teorema si estende anche alla sottrazione.</p>
                 </div>
                 
                 <div class="theorem-card">
                     <h3>Teorema del prodotto</h3>
-                    <p>Se esistono lim<sub>x→c</sub> f(x) = L e lim<sub>x→c</sub> g(x) = M, allora:</p>
+                    <p>Se esistono lim<sub>x→x<sub>0</sub></sub> f(x) = L e lim<sub>x→x<sub>0</sub></sub> g(x) = M, allora:</p>
                     <div class="math-block">
-                        lim<sub>x→c</sub> [f(x) · g(x)] = lim<sub>x→c</sub> f(x) · lim<sub>x→c</sub> g(x) = L · M
+                        lim<sub>x→x<sub>0</sub></sub> [f(x) · g(x)] = lim<sub>x→x<sub>0</sub></sub> f(x) · lim<sub>x→x<sub>0</sub></sub> g(x) = L · M
                     </div>
                 </div>
                 
                 <div class="theorem-card">
                     <h3>Teorema del quoziente</h3>
-                    <p>Se esistono lim<sub>x→c</sub> f(x) = L e lim<sub>x→c</sub> g(x) = M con M ≠ 0, allora:</p>
+                    <p>Se esistono lim<sub>x→x<sub>0</sub></sub> f(x) = L e lim<sub>x→x<sub>0</sub></sub> g(x) = M con M ≠ 0, allora:</p>
                     <div class="math-block">
-                        lim<sub>x→c</sub> [f(x) / g(x)] = lim<sub>x→c</sub> f(x) / lim<sub>x→c</sub> g(x) = L / M
+                        lim<sub>x→x<sub>0</sub></sub> [f(x) / g(x)] = lim<sub>x→x<sub>0</sub></sub> f(x) / lim<sub>x→x<sub>0</sub></sub> g(x) = L / M
                     </div>
                     <p>Se M = 0 e L ≠ 0, il limite non esiste o è infinito (dipende dal segno di f(x) e g(x)).</p>
                 </div>
                 
                 <div class="theorem-card">
                     <h3>Teorema della potenza</h3>
-                    <p>Se esiste lim<sub>x→c</sub> f(x) = L e n è un numero intero positivo, allora:</p>
+                    <p>Se esiste lim<sub>x→x<sub>0</sub></sub> f(x) = L e n è un numero intero positivo, allora:</p>
                     <div class="math-block">
-                        lim<sub>x→c</sub> [f(x)]<sup>n</sup> = [lim<sub>x→c</sub> f(x)]<sup>n</sup> = L<sup>n</sup>
+                        lim<sub>x→x<sub>0</sub></sub> [f(x)]<sup>n</sup> = [lim<sub>x→x<sub>0</sub></sub> f(x)]<sup>n</sup> = L<sup>n</sup>
                     </div>
                     <p>Se n è un numero intero negativo e L ≠ 0, allora:</p>
                     <div class="math-block">
-                        lim<sub>x→c</sub> [f(x)]<sup>n</sup> = [lim<sub>x→c</sub> f(x)]<sup>n</sup> = L<sup>n</sup> = 1 / L<sup>|n|</sup>
+                        lim<sub>x→x<sub>0</sub></sub> [f(x)]<sup>n</sup> = [lim<sub>x→x<sub>0</sub></sub> f(x)]<sup>n</sup> = L<sup>n</sup> = 1 / L<sup>|n|</sup>
                     </div>
                 </div>
                 
@@ -337,13 +111,13 @@
                     <div class="math-block">
                         g(x) ≤ f(x) ≤ h(x)
                     </div>
-                    <p>e se lim<sub>x→c</sub> g(x) = lim<sub>x→c</sub> h(x) = L, allora anche lim<sub>x→c</sub> f(x) = L.</p>
+                    <p>e se lim<sub>x→x<sub>0</sub></sub> g(x) = lim<sub>x→x<sub>0</sub></sub> h(x) = L, allora anche lim<sub>x→x<sub>0</sub></sub> f(x) = L.</p>
                 </div>
                 
                 <div class="theorem-card">
                     <h3>Teorema del confronto per limiti infiniti</h3>
-                    <p>Se in un intorno di c (escluso eventualmente c) si ha f(x) ≥ g(x) e lim<sub>x→c</sub> g(x) = +∞, allora anche lim<sub>x→c</sub> f(x) = +∞.</p>
-                    <p>Analogamente, se f(x) ≤ g(x) e lim<sub>x→c</sub> g(x) = -∞, allora anche lim<sub>x→c</sub> f(x) = -∞.</p>
+                    <p>Se in un intorno di c (escluso eventualmente c) si ha f(x) ≥ g(x) e lim<sub>x→x<sub>0</sub></sub> g(x) = +∞, allora anche lim<sub>x→x<sub>0</sub></sub> f(x) = +∞.</p>
+                    <p>Analogamente, se f(x) ≤ g(x) e lim<sub>x→x<sub>0</sub></sub> g(x) = -∞, allora anche lim<sub>x→x<sub>0</sub></sub> f(x) = -∞.</p>
                 </div>
                 
                 <div class="example">
@@ -362,7 +136,7 @@
                 
                 <div class="theorem-card">
                     <h3>Teorema della permanenza del segno</h3>
-                    <p>Se lim<sub>x→c</sub> f(x) = L e L > 0, allora esiste un intorno di c in cui f(x) > 0 per ogni x dell'intorno (diverso eventualmente da c).</p>
+                    <p>Se lim<sub>x→x<sub>0</sub></sub> f(x) = L e L > 0, allora esiste un intorno di c in cui f(x) > 0 per ogni x dell'intorno (diverso eventualmente da c).</p>
                     <p>Analogamente, se L < 0, allora esiste un intorno di c in cui f(x) < 0 per ogni x dell'intorno (diverso eventualmente da c).</p>
                 </div>
                 
@@ -378,7 +152,7 @@
                 
                 <div class="theorem-card">
                     <h3>Teorema di unicità del limite</h3>
-                    <p>Se lim<sub>x→c</sub> f(x) = L e lim<sub>x→c</sub> f(x) = M, allora L = M.</p>
+                    <p>Se lim<sub>x→x<sub>0</sub></sub> f(x) = L e lim<sub>x→x<sub>0</sub></sub> f(x) = M, allora L = M.</p>
                     <p>In altre parole, una funzione non può avere due limiti diversi nello stesso punto.</p>
                 </div>
                 
@@ -400,15 +174,15 @@
                 
                 <div class="theorem-card">
                     <h3>Teorema di esistenza del limite per funzioni monotone</h3>
-                    <p>Se f(x) è monotona in un intorno destro di c e limitata superiormente, allora esiste lim<sub>x→c⁺</sub> f(x).</p>
-                    <p>Analogamente, se f(x) è monotona in un intorno sinistro di c e limitata inferiormente, allora esiste lim<sub>x→c⁻</sub> f(x).</p>
+                    <p>Se f(x) è monotona in un intorno destro di c e limitata superiormente, allora esiste lim<sub>x→x<sub>0</sub>⁺</sub> f(x).</p>
+                    <p>Analogamente, se f(x) è monotona in un intorno sinistro di c e limitata inferiormente, allora esiste lim<sub>x→x<sub>0</sub>⁻</sub> f(x).</p>
                 </div>
                 
                 <div class="theorem-card">
                     <h3>Teorema di esistenza del limite per funzioni composte</h3>
-                    <p>Se esiste lim<sub>x→c</sub> g(x) = L e se la funzione f è continua in L, allora:</p>
+                    <p>Se esiste lim<sub>x→x<sub>0</sub></sub> g(x) = L e se la funzione f è continua in L, allora:</p>
                     <div class="math-block">
-                        lim<sub>x→c</sub> f(g(x)) = f(lim<sub>x→c</sub> g(x)) = f(L)
+                        lim<sub>x→x<sub>0</sub></sub> f(g(x)) = f(lim<sub>x→x<sub>0</sub></sub> g(x)) = f(L)
                     </div>
                 </div>
                 
@@ -485,5 +259,8 @@
             <p>Creato da Marcello Targa</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
