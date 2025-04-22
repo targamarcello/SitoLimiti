@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizi sui Limiti - Oltre il Limite</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #fff;
+            --light-gray: #eaeaea;
+            --success-color: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .page-title {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .exercise-filters {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .filter-btn {
+            background-color: var(--light-gray);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .exercise {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .exercise h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .difficulty {
+            font-size: 0.85rem;
+            padding: 3px 10px;
+            border-radius: 15px;
+            color: white;
+            background-color: var(--accent-color);
+        }
+        
+        .difficulty.easy {
+            background-color: #27ae60;
+        }
+        
+        .difficulty.medium {
+            background-color: #f39c12;
+        }
+        
+        .difficulty.hard {
+            background-color: #e74c3c;
+        }
+        
+        .math-block {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            text-align: center;
+            font-size: 1.2rem;
+            overflow-x: auto;
+        }
+        
+        .solution {
+            background-color: rgba(41, 128, 185, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary-color);
+            display: none;
+        }
+        
+        .solution.visible {
+            display: block;
+        }
+        
+        .solution h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .solution-steps {
+            margin-top: 15px;
+        }
+        
+        .step {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        .step:last-child {
+            border-bottom: none;
+        }
+        
+        .show-solution-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .show-solution-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+    <script>
+        function toggleSolution(button) {
+            const solution = button.nextElementSibling;
+            solution.classList.toggle('visible');
+            
+            if (solution.classList.contains('visible')) {
+                button.textContent = 'Nascondi soluzione';
+            } else {
+                button.textContent = 'Mostra soluzione';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const exercises = document.querySelectorAll('.exercise');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Toggle active class
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter exercises
+                    if (filter === 'all') {
+                        exercises.forEach(ex => ex.style.display = 'block');
+                    } else {
+                        exercises.forEach(ex => {
+                            if (ex.getAttribute('data-difficulty') === filter || 
+                                ex.getAttribute('data-type') === filter) {
+                                ex.style.display = 'block';
+                            } else {
+                                ex.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Oltre il Limite</h1>
+            <p>Un viaggio nel mondo dell'analisi matematica</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="definizione.html">Definizione</a></li>
+                <li><a href="esercizi.html">Esercizi</a></li>
+                <li><a href="teoremi.html">Teoremi</a></li>
+                <li><a href="approfondimenti.html">Approfondimenti</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="page-title">
+        <div class="container">
+            <h1>Esercizi sui Limiti</h1>
+            <p>Metti in pratica le tue conoscenze con esercizi guidati di diversa difficoltà</p>
+        </div>
+    </section>
+    
+    <section class="main-content">
+        <div class="container">
+            <div class="exercise-filters">
+                <h2>Filtra gli esercizi</h2>
+                <p>Seleziona la tipologia o la difficoltà degli esercizi che desideri visualizzare:</p>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Tutti</button>
+                    <button class="filter-btn" data-filter="easy">Facili</button>
+                    <button class="filter-btn" data-filter="medium">Medi</button>
+                    <button class="filter-btn" data-filter="hard">Difficili</button>
+                    <button class="filter-btn" data-filter="algebraic">Algebrici</button>
+                    <button class="filter-btn" data-filter="indeterminate">Forme indeterminate</button>
+                    <button class="filter-btn" data-filter="infinity">Limiti all'infinito</button>
+                </div>
+            </div>
+            
+            <div class="exercise" data-type="algebraic" data-difficulty="easy">
+                <h2>
+                    Esercizio 1: Limite di una funzione razionale
+                    <span class="difficulty easy">Facile</span>
+                </h2>
+                <p>Calcola il seguente limite:</p>
+                <div class="math-block">
+                    lim<sub>x→3</sub> (2x + 5)
+                </div>
+                <button class="show-solution-btn" onclick="toggleSolution(this)">Mostra soluzione</button>
+                <div class="solution">
+                    <h3>Soluzione</h3>
+                    <p>In questo caso, possiamo applicare direttamente la definizione di limite, sostituendo il valore di x a cui tende (3) nella funzione.</p>
+                    <div class="solution-steps">
+                        <div class="step">
+                            <p>lim<sub>x→3</sub> (2x + 5) = 2(3) + 5</p>
+                        </div>
+                        <div class="step">
+                            <p>= 6 + 5</p>
+                        </div>
+                        <div class="step">
+                            <p>= 11</p>
+                        </div>
+                    </div>
+                    <p>Quindi, lim<sub>x→3</sub> (2x + 5) = 11</p>
+                </div>
+            </div>
+            
+            <div class="exercise" data-type="indeterminate" data-difficulty="medium">
+                <h2>
+                    Esercizio 2: Limite con forma indeterminata 0/0
+                    <span class="difficulty medium">Medio</span>
+                </h2>
+                <p>Calcola il seguente limite:</p>
+                <div class="math-block">
+                    lim<sub>x→2</sub> (x² - 4) / (x - 2)
+                </div>
+                <button class="show-solution-btn" onclick="toggleSolution(this)">Mostra soluzione</button>
+                <div class="solution">
+                    <h3>Soluzione</h3>
+                    <p>Questo limite presenta una forma indeterminata del tipo 0/0. Verificiamo:</p>
+                    <div class="solution-steps">
+                        <div class="step">
+                            <p>lim<sub>x→2</sub> (x² - 4) / (x - 2)</p>
+                            <p>Per x = 2, otteniamo (2² - 4) / (2 - 2) = 0/0, che è una forma indeterminata.</p>
+                        </div>
+                        <div class="step">
+                            <p>Possiamo risolvere questo limite fattorizzando il numeratore:</p>
+                            <p>(x² - 4) = (x - 2)(x + 2)</p>
+                        </div>
+                        <div class="step">
+                            <p>Sostituendo nella formula del limite:</p>
+                            <p>lim<sub>x→2</sub> (x² - 4) / (x - 2) = lim<sub>x→2</sub> [(x - 2)(x + 2)] / (x - 2)</p>
+                        </div>
+                        <div class="step">
+                            <p>Semplificando il fattore comune (x - 2):</p>
+                            <p>lim<sub>x→2</sub> (x + 2) = 2 + 2 = 4</p>
+                        </div>
+                    </div>
+                    <p>Quindi, lim<sub>x→2</sub> (x² - 4) / (x - 2) = 4</p>
+                </div>
+            </div>
+            
+            <div class="exercise" data-type="infinity" data-difficulty="hard">
+                <h2>
+                    Esercizio 3: Limite all'infinito
+                    <span class="difficulty hard">Difficile</span>
+                </h2>
+                <p>Calcola il seguente limite:</p>
+                <div class="math-block">
+                    lim<sub>x→∞</sub> (3x² + 2x - 1) / (x² - 5x + 7)
+                </div>
+                <button class="show-solution-btn" onclick="toggleSolution(this)">Mostra soluzione</button>
+                <div class="solution">
+                    <h3>Soluzione</h3>
+                    <p>Quando abbiamo un limite all'infinito di funzioni razionali, possiamo dividerle per la più alta potenza di x presente al denominatore:</p>
+                    <div class="solution-steps">
+                        <div class="step">
+                            <p>lim<sub>x→∞</sub> (3x² + 2x - 1) / (x² - 5x + 7)</p>
+                            <p>Dividiamo numeratore e denominatore per x²:</p>
+                        </div>
+                        <div class="step">
+                            <p>lim<sub>x→∞</sub> [(3x²/x²) + (2x/x²) - (1/x²)] / [(x²/x²) - (5x/x²) + (7/x²)]</p>
+                            <p>= lim<sub>x→∞</sub> [3 + (2/x) - (1/x²)] / [1 - (5/x) + (7/x²)]</p>
+                        </div>
+                        <div class="step">
+                            <p>Quando x tende all'infinito, 1/x e 1/x² tendono a 0, quindi:</p>
+                            <p>lim<sub>x→∞</sub> [3 + 0 - 0] / [1 - 0 + 0] = 3/1 = 3</p>
+                        </div>
+                    </div>
+                    <p>Quindi, lim<sub>x→∞</sub> (3x² + 2x - 1) / (x² - 5x + 7) = 3</p>
+                </div>
+            </div>
+            
+            <div class="exercise" data-type="indeterminate" data-difficulty="medium">
+                <h2>
+                    Esercizio 4: Limite con forma indeterminata ∞/∞
+                    <span class="difficulty medium">Medio</span>
+                </h2>
+                <p>Calcola il seguente limite:</p>
+                <div class="math-block">
+                    lim<sub>x→∞</sub> (2x² + 3x) / (4x + 1)
+                </div>
+                <button class="show-solution-btn" onclick="toggleSolution(this)">Mostra soluzione</button>
+                <div class="solution">
+                    <h3>Soluzione</h3>
+                    <p>Questo limite presenta una forma indeterminata del tipo ∞/∞.</p>
+                    <div class="solution-steps">
+                        <div class="step">
+                            <p>Per risolvere questo tipo di limiti, possiamo dividere sia il numeratore che il denominatore per la più alta potenza di x presente in uno dei due.</p>
+                            <p>In questo caso, la più alta potenza è x² al numeratore. Dividiamo tutto per x:</p>
+                        </div>
+                        <div class="step">
+                            <p>lim<sub>x→∞</sub> (2x² + 3x) / (4x + 1) = lim<sub>x→∞</sub> [(2x² / x) + (3x / x)] / [(4x / x) + (1 / x)]</p>
+                            <p>= lim<sub>x→∞</sub> (2x + 3) / (4 + 1/x)</p>
+                        </div>
+                        <div class="step">
+                            <p>Quando x tende all'infinito, 1/x tende a 0, quindi:</p>
+                            <p>lim<sub>x→∞</sub> (2x + 3) / (4 + 0)</p>
+                        </div>
+                        <div class="step">
+                            <p>L'espressione diventa (2x + 3) / 4</p>
+                            <p>Quando x tende all'infinito, 2x diventa infinitamente più grande di 3, quindi:</p>
+                            <p>lim<sub>x→∞</sub> (2x) / 4 = lim<sub>x→∞</sub> x/2 = ∞</p>
+                        </div>
+                    </div>
+                    <p>Quindi, lim<sub>x→∞</sub> (2x² + 3x) / (4x + 1) = ∞</p>
+                </div>
+            </div>
+            
+            <div class="exercise" data-type="algebraic" data-difficulty="easy">
+                <h2>
+                    Esercizio 5: Limite elementare
+                    <span class="difficulty easy">Facile</span>
+                </h2>
+                <p>Calcola il seguente limite:</p>
+                <div class="math-block">
+                    lim<sub>x→1</sub> (x³ - 3x + 5)
+                </div>
+                <button class="show-solution-btn" onclick="toggleSolution(this)">Mostra soluzione</button>
+                <div class="solution">
+                    <h3>Soluzione</h3>
+                    <p>Possiamo calcolare direttamente questo limite sostituendo x = 1 nella funzione:</p>
+                    <div class="solution-steps">
+                        <div class="step">
+                            <p>lim<sub>x→1</sub> (x³ - 3x + 5) = 1³ - 3(1) + 5</p>
+                        </div>
+                        <div class="step">
+                            <p>= 1 - 3 + 5</p>
+                        </div>
+                        <div class="step">
+                            <p>= 3</p>
+                        </div>
+                    </div>
+                    <p>Quindi, lim<sub>x→1</sub> (x³ - 3x + 5) = 3</p>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <a href="definizione.html" class="nav-button">← Torna alla Definizione</a>
+                <a href="teoremi.html" class="nav-button">Vai ai Teoremi →</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Oltre il Limite - Un progetto didattico per l'apprendimento dei limiti</p>
+            <p>Creato da Marcello Targa</p>
+        </div>
+    </footer>
+</body>
+</html>

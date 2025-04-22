@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definizione di Limite - Oltre il Limite</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #fff;
+            --light-gray: #eaeaea;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .page-title {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .definition-section {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 2rem;
+        }
+        
+        .definition-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+        
+        .math-block {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            text-align: center;
+            font-size: 1.2rem;
+            overflow-x: auto;
+        }
+        
+        .example {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .example h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .types-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        
+        .type-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        
+        .type-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .types-section {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Oltre il Limite</h1>
+            <p>Un viaggio nel mondo dell'analisi matematica</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="definizione.html">Definizione</a></li>
+                <li><a href="esercizi.html">Esercizi</a></li>
+                <li><a href="teoremi.html">Teoremi</a></li>
+                <li><a href="approfondimenti.html">Approfondimenti</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="page-title">
+        <div class="container">
+            <h1>Definizione di Limite</h1>
+            <p>Comprendere il concetto fondamentale dell'analisi matematica</p>
+        </div>
+    </section>
+    
+    <section class="main-content">
+        <div class="container">
+            <div class="definition-section">
+                <h2>Cos'è un limite?</h2>
+                <p>Il limite di una funzione è un concetto matematico che descrive il comportamento della funzione quando la sua variabile indipendente si avvicina a un determinato valore. In termini più formali, il limite di una funzione f(x) quando x tende a un valore c è il valore a cui f(x) si avvicina, se esiste.</p>
+                
+                <div class="math-block">
+                    lim<sub>x→c</sub> f(x) = L
+                </div>
+                
+                <p>Questa notazione indica che quando x si avvicina a c (ma non è necessariamente uguale a c), il valore della funzione f(x) si avvicina al valore L.</p>
+            </div>
+            
+            <div class="definition-section">
+                <h2>Definizione formale (ε-δ)</h2>
+                <p>La definizione formale di limite utilizza il concetto di vicinanza tramite i valori ε (epsilon) e δ (delta):</p>
+                
+                <div class="math-block">
+                    lim<sub>x→c</sub> f(x) = L significa che ∀ ε > 0, ∃ δ > 0 tale che<br>
+                    se 0 < |x - c| < δ, allora |f(x) - L| < ε
+                </div>
+                
+                <p>In parole semplici, questa definizione afferma che possiamo rendere f(x) arbitrariamente vicino a L (con un margine di errore ε) scegliendo x sufficientemente vicino a c (entro una distanza δ).</p>
+                
+                <div class="example">
+                    <h3>Esempio di applicazione della definizione ε-δ</h3>
+                    <p>Verifichiamo che lim<sub>x→2</sub> (3x - 1) = 5 usando la definizione ε-δ.</p>
+                    <p>Vogliamo trovare δ in funzione di ε tale che se |x - 2| < δ, allora |(3x - 1) - 5| < ε.</p>
+                    <p>Semplifichiamo: |(3x - 1) - 5| = |3x - 6| = 3|x - 2|</p>
+                    <p>Quindi, se scegliamo δ = ε/3, avremo che se |x - 2| < δ = ε/3, allora |(3x - 1) - 5| = 3|x - 2| < 3(ε/3) = ε</p>
+                    <p>Questo dimostra che il limite è effettivamente 5.</p>
+                </div>
+            </div>
+            
+            <h2>Tipi di limiti</h2>
+            <div class="types-section">
+                <div class="type-card">
+                    <h3>Limite destro e sinistro</h3>
+                    <p>Il limite destro considera i valori di x che si avvicinano a c da destra (x > c), mentre il limite sinistro considera i valori di x che si avvicinano a c da sinistra (x < c).</p>
+                    <div class="math-block">
+                        lim<sub>x→c<sup>+</sup></sub> f(x) = limite destro<br>
+                        lim<sub>x→c<sup>-</sup></sub> f(x) = limite sinistro
+                    </div>
+                    <p>Un limite esiste solo se i limiti destro e sinistro sono uguali.</p>
+                </div>
+                
+                <div class="type-card">
+                    <h3>Limite all'infinito</h3>
+                    <p>Studia il comportamento di una funzione quando x tende a infinito (positivo o negativo).</p>
+                    <div class="math-block">
+                        lim<sub>x→∞</sub> f(x) = L<br>
+                        lim<sub>x→-∞</sub> f(x) = M
+                    </div>
+                    <p>Questi limiti sono utili per studiare il comportamento asintotico delle funzioni.</p>
+                </div>
+                
+                <div class="type-card">
+                    <h3>Limite infinito</h3>
+                    <p>Si verifica quando il valore della funzione cresce indefinitamente in valore assoluto mentre x si avvicina a c.</p>
+                    <div class="math-block">
+                        lim<sub>x→c</sub> f(x) = ∞<br>
+                        lim<sub>x→c</sub> f(x) = -∞
+                    </div>
+                    <p>Questi limiti indicano la presenza di asintoti verticali nel grafico della funzione.</p>
+                </div>
+            </div>
+            
+            <div class="definition-section">
+                <h2>Proprietà dei limiti</h2>
+                <p>I limiti seguono diverse proprietà algebriche che ne facilitano il calcolo:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Limite di una somma: lim[f(x) + g(x)] = lim f(x) + lim g(x)</li>
+                    <li>Limite di un prodotto: lim[f(x) · g(x)] = lim f(x) · lim g(x)</li>
+                    <li>Limite di un quoziente: lim[f(x)/g(x)] = lim f(x) / lim g(x), se lim g(x) ≠ 0</li>
+                    <li>Limite di una potenza: lim[f(x)]<sup>n</sup> = [lim f(x)]<sup>n</sup></li>
+                    <li>Limite di una radice: lim √f(x) = √lim f(x), se lim f(x) ≥ 0</li>
+                </ul>
+                <p>Queste proprietà sono discusse più approfonditamente nella sezione dei <a href="teoremi.html" style="color: var(--secondary-color);">teoremi</a>.</p>
+            </div>
+            
+            <div class="navigation-buttons">
+                <a href="index.html" class="nav-button">← Torna alla Home</a>
+                <a href="esercizi.html" class="nav-button">Vai agli Esercizi →</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Oltre il Limite - Un progetto didattico per l'apprendimento dei limiti</p>
+            <p>Creato da Marcello Targa</p>
+        </div>
+    </footer>
+</body>
+</html>

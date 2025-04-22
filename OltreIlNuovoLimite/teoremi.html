@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoremi sui Limiti - Oltre il Limite</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #fff;
+            --light-gray: #eaeaea;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .page-title {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .theorem-section {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 2rem;
+        }
+        
+        .theorem-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+        
+        .theorem-card {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .theorem-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .math-block {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            text-align: center;
+            font-size: 1.2rem;
+            overflow-x: auto;
+        }
+        
+        .example {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .example h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        
+        .note {
+            background-color: rgba(241, 196, 15, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #f1c40f;
+        }
+        
+        .note h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .table-of-contents {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 2rem;
+        }
+        
+        .table-of-contents h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .table-of-contents ul {
+            list-style-type: none;
+        }
+        
+        .table-of-contents ul li {
+            margin-bottom: 8px;
+        }
+        
+        .table-of-contents a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .table-of-contents a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Oltre il Limite</h1>
+            <p>Un viaggio nel mondo dell'analisi matematica</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="definizione.html">Definizione</a></li>
+                <li><a href="esercizi.html">Esercizi</a></li>
+                <li><a href="teoremi.html">Teoremi</a></li>
+                <li><a href="approfondimenti.html">Approfondimenti</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="page-title">
+        <div class="container">
+            <h1>Teoremi sui Limiti</h1>
+            <p>Le regole fondamentali che governano il comportamento dei limiti</p>
+        </div>
+    </section>
+    
+    <section class="main-content">
+        <div class="container">
+            <div class="table-of-contents">
+                <h3>Indice dei Teoremi</h3>
+                <ul>
+                    <li><a href="#operazioni">1. Teoremi sulle operazioni con i limiti</a></li>
+                    <li><a href="#confronto">2. Teoremi del confronto</a></li>
+                    <li><a href="#permanenza">3. Teorema della permanenza del segno</a></li>
+                    <li><a href="#unicit">4. Teorema di unicità del limite</a></li>
+                    <li><a href="#esistenza">5. Teoremi di esistenza</a></li>
+                    <li><a href="#notevoli">6. Limiti notevoli</a></li>
+                </ul>
+            </div>
+            
+            <div id="operazioni" class="theorem-section">
+                <h2>1. Teoremi sulle operazioni con i limiti</h2>
+                <p>I seguenti teoremi ci permettono di calcolare i limiti di espressioni complesse scomponendole in operazioni più semplici.</p>
+                
+                <div class="theorem-card">
+                    <h3>Teorema della somma</h3>
+                    <p>Se esistono lim<sub>x→c</sub> f(x) = L e lim<sub>x→c</sub> g(x) = M, allora:</p>
+                    <div class="math-block">
+                        lim<sub>x→c</sub> [f(x) + g(x)] = lim<sub>x→c</sub> f(x) + lim<sub>x→c</sub> g(x) = L + M
+                    </div>
+                    <p>Questo teorema si estende anche alla sottrazione.</p>
+                </div>
+                
+                <div class="theorem-card">
+                    <h3>Teorema del prodotto</h3>
+                    <p>Se esistono lim<sub>x→c</sub> f(x) = L e lim<sub>x→c</sub> g(x) = M, allora:</p>
+                    <div class="math-block">
+                        lim<sub>x→c</sub> [f(x) · g(x)] = lim<sub>x→c</sub> f(x) · lim<sub>x→c</sub> g(x) = L · M
+                    </div>
+                </div>
+                
+                <div class="theorem-card">
+                    <h3>Teorema del quoziente</h3>
+                    <p>Se esistono lim<sub>x→c</sub> f(x) = L e lim<sub>x→c</sub> g(x) = M con M ≠ 0, allora:</p>
+                    <div class="math-block">
+                        lim<sub>x→c</sub> [f(x) / g(x)] = lim<sub>x→c</sub> f(x) / lim<sub>x→c</sub> g(x) = L / M
+                    </div>
+                    <p>Se M = 0 e L ≠ 0, il limite non esiste o è infinito (dipende dal segno di f(x) e g(x)).</p>
+                </div>
+                
+                <div class="theorem-card">
+                    <h3>Teorema della potenza</h3>
+                    <p>Se esiste lim<sub>x→c</sub> f(x) = L e n è un numero intero positivo, allora:</p>
+                    <div class="math-block">
+                        lim<sub>x→c</sub> [f(x)]<sup>n</sup> = [lim<sub>x→c</sub> f(x)]<sup>n</sup> = L<sup>n</sup>
+                    </div>
+                    <p>Se n è un numero intero negativo e L ≠ 0, allora:</p>
+                    <div class="math-block">
+                        lim<sub>x→c</sub> [f(x)]<sup>n</sup> = [lim<sub>x→c</sub> f(x)]<sup>n</sup> = L<sup>n</sup> = 1 / L<sup>|n|</sup>
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h4>Esempio</h4>
+                    <p>Calcolare lim<sub>x→2</sub> (3x² - x + 4) / (x - 1)</p>
+                    <p>Soluzione:</p>
+                    <p>lim<sub>x→2</sub> (3x² - x + 4) / (x - 1) = [lim<sub>x→2</sub> (3x² - x + 4)] / [lim<sub>x→2</sub> (x - 1)]</p>
+                    <p>= [3·lim<sub>x→2</sub> x² - lim<sub>x→2</sub> x + 4] / [lim<sub>x→2</sub> x - 1]</p>
+                    <p>= [3·2² - 2 + 4] / [2 - 1]</p>
+                    <p>= [12 - 2 + 4] / 1</p>
+                    <p>= 14</p>
+                </div>
+            </div>
+            
+            <div id="confronto" class="theorem-section">
+                <h2>2. Teoremi del confronto</h2>
+                <p>Questi teoremi ci permettono di determinare il valore di un limite confrontandolo con altri limiti già noti.</p>
+                
+                <div class="theorem-card">
+                    <h3>Teorema dei due carabinieri (o del confronto)</h3>
+                    <p>Se in un intorno di c (escluso eventualmente c) si ha:</p>
+                    <div class="math-block">
+                        g(x) ≤ f(x) ≤ h(x)
+                    </div>
+                    <p>e se lim<sub>x→c</sub> g(x) = lim<sub>x→c</sub> h(x) = L, allora anche lim<sub>x→c</sub> f(x) = L.</p>
+                </div>
+                
+                <div class="theorem-card">
+                    <h3>Teorema del confronto per limiti infiniti</h3>
+                    <p>Se in un intorno di c (escluso eventualmente c) si ha f(x) ≥ g(x) e lim<sub>x→c</sub> g(x) = +∞, allora anche lim<sub>x→c</sub> f(x) = +∞.</p>
+                    <p>Analogamente, se f(x) ≤ g(x) e lim<sub>x→c</sub> g(x) = -∞, allora anche lim<sub>x→c</sub> f(x) = -∞.</p>
+                </div>
+                
+                <div class="example">
+                    <h4>Esempio</h4>
+                    <p>Consideriamo le funzioni g(x) = x², f(x) = x² + sin(x)/x e h(x) = x² + 1/x per x che tende a +∞.</p>
+                    <p>Sappiamo che sin(x)/x è limitata da -1/x a 1/x per x sufficientemente grande, quindi:</p>
+                    <p>x² - 1/x ≤ x² + sin(x)/x ≤ x² + 1/x</p>
+                    <p>Ora, lim<sub>x→+∞</sub> (x² - 1/x) = lim<sub>x→+∞</sub> (x² + 1/x) = +∞</p>
+                    <p>Per il teorema del confronto, possiamo concludere che lim<sub>x→+∞</sub> (x² + sin(x)/x) = +∞</p>
+                </div>
+            </div>
+            
+            <div id="permanenza" class="theorem-section">
+                <h2>3. Teorema della permanenza del segno</h2>
+                <p>Questo teorema ci permette di stabilire il segno di una funzione in prossimità di un punto conoscendo il suo limite.</p>
+                
+                <div class="theorem-card">
+                    <h3>Teorema della permanenza del segno</h3>
+                    <p>Se lim<sub>x→c</sub> f(x) = L e L > 0, allora esiste un intorno di c in cui f(x) > 0 per ogni x dell'intorno (diverso eventualmente da c).</p>
+                    <p>Analogamente, se L < 0, allora esiste un intorno di c in cui f(x) < 0 per ogni x dell'intorno (diverso eventualmente da c).</p>
+                </div>
+                
+                <div class="note">
+                    <h4>Nota importante</h4>
+                    <p>Il teorema della permanenza del segno è utile nelle dimostrazioni che riguardano le funzioni continue e nell'analisi degli intervalli in cui una funzione mantiene un segno costante.</p>
+                </div>
+            </div>
+            
+            <div id="unicit" class="theorem-section">
+                <h2>4. Teorema di unicità del limite</h2>
+                <p>Questo teorema garantisce che, se esiste, il limite di una funzione in un punto è unico.</p>
+                
+                <div class="theorem-card">
+                    <h3>Teorema di unicità del limite</h3>
+                    <p>Se lim<sub>x→c</sub> f(x) = L e lim<sub>x→c</sub> f(x) = M, allora L = M.</p>
+                    <p>In altre parole, una funzione non può avere due limiti diversi nello stesso punto.</p>
+                </div>
+                
+                <div class="note">
+                    <h4>Dimostrazione per assurdo</h4>
+                    <p>Si può dimostrare questo teorema per assurdo. Supponiamo che L ≠ M e poniamo ε = |L - M|/2 > 0.</p>
+                    <p>Per la definizione di limite, esistono δ₁ > 0 e δ₂ > 0 tali che:</p>
+                    <p>|f(x) - L| < ε per 0 < |x - c| < δ₁ e |f(x) - M| < ε per 0 < |x - c| < δ₂</p>
+                    <p>Prendendo δ = min{δ₁, δ₂} e x tale che 0 < |x - c| < δ, si ha contemporaneamente:</p>
+                    <p>|f(x) - L| < ε e |f(x) - M| < ε</p>
+                    <p>Ma allora |L - M| = |L - f(x) + f(x) - M| ≤ |L - f(x)| + |f(x) - M| < 2ε = |L - M|</p>
+                    <p>Questa è una contraddizione, quindi deve essere L = M.</p>
+                </div>
+            </div>
+            
+            <div id="esistenza" class="theorem-section">
+                <h2>5. Teoremi di esistenza</h2>
+                <p>Questi teoremi ci permettono di stabilire l'esistenza di un limite senza dover necessariamente calcolarne il valore.</p>
+                
+                <div class="theorem-card">
+                    <h3>Teorema di esistenza del limite per funzioni monotone</h3>
+                    <p>Se f(x) è monotona in un intorno destro di c e limitata superiormente, allora esiste lim<sub>x→c⁺</sub> f(x).</p>
+                    <p>Analogamente, se f(x) è monotona in un intorno sinistro di c e limitata inferiormente, allora esiste lim<sub>x→c⁻</sub> f(x).</p>
+                </div>
+                
+                <div class="theorem-card">
+                    <h3>Teorema di esistenza del limite per funzioni composte</h3>
+                    <p>Se esiste lim<sub>x→c</sub> g(x) = L e se la funzione f è continua in L, allora:</p>
+                    <div class="math-block">
+                        lim<sub>x→c</sub> f(g(x)) = f(lim<sub>x→c</sub> g(x)) = f(L)
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h4>Esempio</h4>
+                    <p>Calcolare lim<sub>x→0</sub> sin(3x²)</p>
+                    <p>Soluzione:</p>
+                    <p>Possiamo applicare il teorema delle funzioni composte con g(x) = 3x² e f(y) = sin(y).</p>
+                    <p>Sappiamo che lim<sub>x→0</sub> 3x² = 0 e che sin(y) è continua in y = 0, quindi:</p>
+                    <p>lim<sub>x→0</sub> sin(3x²) = sin(lim<sub>x→0</sub> 3x²) = sin(0) = 0</p>
+                </div>
+            </div>
+            
+            <div id="notevoli" class="theorem-section">
+                <h2>6. Limiti notevoli</h2>
+                <p>I limiti notevoli sono limiti di funzioni particolari che ricorrono frequentemente nei calcoli e che è utile memorizzare.</p>
+                
+                <div class="theorem-card">
+                    <h3>Primo limite notevole</h3>
+                    <div class="math-block">
+                        lim<sub>x→0</sub> sin(x) / x = 1
+                    </div>
+                    <p>Questo limite è fondamentale nella trigonometria e nell'analisi matematica.</p>
+                </div>
+                
+                <div class="theorem-card">
+                    <h3>Secondo limite notevole</h3>
+                    <div class="math-block">
+                        lim<sub>x→0</sub> (1 - cos(x)) / x² = 1/2
+                    </div>
+                    <p>Questo limite è utile per lo studio di funzioni che coinvolgono il coseno.</p>
+                </div>
+                
+                <div class="theorem-card">
+                    <h3>Limiti esponenziali notevoli</h3>
+                    <div class="math-block">
+                        lim<sub>x→∞</sub> (1 + 1/x)<sup>x</sup> = e<br>
+                        lim<sub>x→0</sub> (1 + x)<sup>1/x</sup> = e
+                    </div>
+                    <p>Questi limiti sono alla base della definizione del numero di Eulero e.</p>
+                </div>
+                
+                <div class="theorem-card">
+                    <h3>Altri limiti notevoli</h3>
+                    <div class="math-block">
+                        lim<sub>x→0</sub> ln(1 + x) / x = 1<br>
+                        lim<sub>x→0</sub> (e<sup>x</sup> - 1) / x = 1<br>
+                        lim<sub>x→0</sub> tan(x) / x = 1<br>
+                        lim<sub>x→0</sub> arcsin(x) / x = 1<br>
+                        lim<sub>x→0</sub> arctan(x) / x = 1
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h4>Esempio</h4>
+                    <p>Calcolare lim<sub>x→0</sub> sin(5x) / (3x)</p>
+                    <p>Soluzione:</p>
+                    <p>lim<sub>x→0</sub> sin(5x) / (3x) = lim<sub>x→0</sub> [sin(5x) / (5x) · (5x) / (3x)] = lim<sub>x→0</sub> [sin(5x) / (5x)] · lim<sub>x→0</sub> [(5x) / (3x)]</p>
+                    <p>Utilizzando il primo limite notevole e sostituendo y = 5x (se x → 0, anche y → 0):</p>
+                    <p>lim<sub>x→0</sub> [sin(5x) / (5x)] · lim<sub>x→0</sub> [(5x) / (3x)] = 1 · (5/3) = 5/3</p>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <a href="esercizi.html" class="nav-button">← Torna agli Esercizi</a>
+                <a href="approfondimenti.html" class="nav-button">Vai agli Approfondimenti →</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Oltre il Limite - Un progetto didattico per l'apprendimento dei limiti</p>
+            <p>Creato da Marcello Targa</p>
+        </div>
+    </footer>
+</body>
+</html>

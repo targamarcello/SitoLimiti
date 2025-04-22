@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oltre il Limite - Teoria dei Limiti</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .main-content {
+            padding: 3rem 0;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+        }
+        
+        .card p {
+            margin-bottom: 15px;
+        }
+        
+        .card a {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .card a:hover {
+            background-color: #2980b9;
+        }
+        
+        .math-formula {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .cta-section {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #f8f8f8;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Oltre il Limite</h1>
+            <p>Un viaggio nel mondo dell'analisi matematica</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="definizione.html">Definizione</a></li>
+                <li><a href="esercizi.html">Esercizi</a></li>
+                <li><a href="teoremi.html">Teoremi</a></li>
+                <li><a href="approfondimenti.html">Approfondimenti</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Teoria dei Limiti</h1>
+            <p>Scopri la bellezza e l'importanza dei limiti nell'analisi matematica. Un concetto fondamentale che apre le porte al calcolo differenziale e integrale.</p>
+        </div>
+    </section>
+    
+    <section class="main-content">
+        <div class="container">
+            <h2>Benvenuto nel mondo dei limiti</h2>
+            <p>Il concetto di limite è alla base dell'analisi matematica e rappresenta uno strumento fondamentale per comprendere il comportamento delle funzioni. In questo sito troverai spiegazioni chiare, esempi pratici e strumenti interattivi per padroneggiare questo importante argomento.</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Definizione di Limite</h3>
+                    <p>Il limite di una funzione rappresenta il valore a cui tende la funzione quando la variabile indipendente si avvicina a un determinato valore.</p>
+                    <div class="math-formula">
+                        lim<sub>x→c</sub> f(x) = L
+                    </div>
+                    <a href="definizione.html">Approfondisci</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Teoremi sui Limiti</h3>
+                    <p>Scopri i principali teoremi che regolano il calcolo dei limiti e le loro applicazioni nel mondo reale.</p>
+                    <div class="math-formula">
+                        lim<sub>x→c</sub> [f(x) + g(x)] = lim<sub>x→c</sub> f(x) + lim<sub>x→c</sub> g(x)
+                    </div>
+                    <a href="teoremi.html">Esplora i teoremi</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Esercizi guidati</h3>
+                    <p>Metti alla prova la tua comprensione con una serie di esercizi di difficoltà crescente, con soluzioni passo-passo.</p>
+                    <div class="math-formula">
+                        lim<sub>x→0</sub> (sin x / x) = 1
+                    </div>
+                    <a href="esercizi.html">Pratica</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto a superare i tuoi limiti?</h2>
+            <p>Scopri il nostro percorso di apprendimento guidato per padroneggiare il calcolo dei limiti e affrontare con sicurezza l'analisi matematica.</p>
+            <a href="percorso.html" class="cta-button">Inizia il percorso</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Oltre il Limite - Un progetto didattico per l'apprendimento dei limiti</p>
+            <p>Creato da Marcello Targa</p>
+        </div>
+    </footer>
+</body>
+</html>
